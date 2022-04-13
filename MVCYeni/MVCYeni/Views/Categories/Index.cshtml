@@ -1,0 +1,40 @@
+﻿@model List<MVCYeni.Models.EntityFramework.Categories>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Categories List</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>CategoryName</td>
+            <td>Description</td>
+            <td>Güncelle</td>
+            <td>Sil</td>
+            
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cat in Model)
+        {
+        <tr>
+            <td>  @cat.CategoryID</td>
+            <td>  @cat.CategoryName</td>
+            <td>  @cat.Description</td>
+
+
+            <td> @Html.ActionLink("Güncelle", "Güncelle", new { id = cat.CategoryID }, new { @class = "btn btn-primary" })</td>
+            <td> @Html.ActionLink("Sil", "Sil", new { id = cat.CategoryID }, new { @class = "btn btn-danger" })</td>
+            
+
+        </tr>
+        }
+
+
+    </tbody>
+</table>
+

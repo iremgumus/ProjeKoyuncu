@@ -1,0 +1,35 @@
+﻿@using MVCYeni.Models.EntityFramework;
+@model List<Products>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<a class="btn btn-success" href="/Products/Yeni">Add New Product</a>
+
+<h1>Products List</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Ad</td>
+            <td>Guncelle</td>
+            <td>Sil</td>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var product in Model)
+            {
+        <tr>
+            <td>  @product.ProductID</td>
+            <td>  @product.ProductName</td>
+            <td> <a class="btn btn-primary" href="/Products/Guncelle/@product.ProductID">Güncelle</a></td>
+            <td> <a class="btn btn-primary" href="/Products/Sil/@product.ProductID">Sil</a></td>
+        </tr>
+            }
+
+
+    </tbody>
+</table>

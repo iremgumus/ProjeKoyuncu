@@ -1,0 +1,16 @@
+﻿@model MVCYeni.Models.EntityFramework.Products
+@{
+    ViewBag.Title = "Yeni";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Yeni</h2>
+@using (Html.BeginForm("Kaydet", "Products", FormMethod.Post))
+        {
+            <div class="form-group">
+                @Html.LabelFor(m=>m.ProductName)
+                @Html.TextBoxFor(m => m.ProductName, new {@class="form-control"})
+            </div>
+            @Html.HiddenFor(m=>m.ProductID)
+        <button type="submit" class="btn btn-success">Kaydet</button>
+        } 

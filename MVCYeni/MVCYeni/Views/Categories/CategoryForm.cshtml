@@ -1,0 +1,28 @@
+﻿@model MVCYeni.ViewModels.ProductFormViewModel
+@{
+    ViewBag.Title = "Yeni";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Yeni</h2>
+@using (Html.BeginForm("Kaydet", "categories", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m =>m.categories.CategoryName)
+        @Html.TextBoxFor(m => m.categories.CategoryName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.categories.Description)
+        @Html.TextBoxFor(m => m.categories.Description, new { @class = "form-control" })
+    </div>
+     <div class="form-group">
+        @Html.LabelFor(m => m.categories.CategoryID)
+        @Html.DropDownListFor(m => m.categories.CategoryID, new SelectList(Model.products, "Id", "Ad") ,"ID Seçiniz..." ,new{ @class = "form-control" })
+    </div>
+
+
+   
+   
+    @Html.HiddenFor(m=>m.categories.CategoryID)
+    <button type="submit" class="btn btn-default">Kaydet</button>
+}
